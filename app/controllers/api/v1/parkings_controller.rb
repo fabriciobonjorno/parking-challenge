@@ -10,7 +10,7 @@ module Api
             message: 'Vehicle registered successfully!'
           )
         else
-          render json: { message: 'Error terminating output!' }
+          render json: @parking.errors
         end
       end
 
@@ -19,7 +19,7 @@ module Api
         if @parking.save
           render json: { message: 'Exit successfully!' }
         else
-          render json: { message: 'Error terminating output!' }
+          render json: @parking.errors
         end
       end
 
