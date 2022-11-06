@@ -3,7 +3,14 @@ module Api
     class ParkingsController < ApplicationController
       before_action :set_parking, only: %i[out pay]
       def parking
-        render json: { message: 'Welcome to Parkings' }
+        @parking = Parking.new(parkings_params)
+        if @parking.save
+          render json: ParkingPresenter.entrace_ticket(@parking).merge(
+            message: 'Vehicle registered successfully!'
+          )
+        else
+          render json: { message: 'Error terminating output!' }
+        end
       end
 
       def out
@@ -19,7 +26,7 @@ module Api
         @parking.paid = params[:payment]
         if @parking.save
           UpdateTimeService.new(@parking).call
-          render json: PaymentVoucherPresenter.payment_voucher(@parking).merge(
+          render json: ParkingPresenter.payment_voucher(@parking).merge(
             message: 'Payment made successfully!'
           )
         else

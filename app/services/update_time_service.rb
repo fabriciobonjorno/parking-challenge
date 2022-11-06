@@ -14,5 +14,6 @@ class UpdateTimeService
     plate = Parking.find(@parking.id)
     update_time = ActiveSupport::Duration.build((plate.updated_at - plate.created_at).round).inspect
     plate.update_columns(time: update_time)
+    plate
   end
 end

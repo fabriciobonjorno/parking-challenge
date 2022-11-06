@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'parkings', to: 'parkings#parking'
-      get 'parkings/out/:id', to: 'parkings#out'
-      get 'parkings/pay/:id', to: 'parkings#pay'
+      post 'parkings', to: 'parkings#parking'
+      put 'parkings/out/:id', to: 'parkings#out'
+      put 'parkings/pay/:id', to: 'parkings#pay'
       get 'parkings/:plate', to: 'parkings#plate'
     end
   end
