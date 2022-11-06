@@ -16,4 +16,15 @@ class ParkingPresenter
       entrance_time: entrace[:created_at].strftime('%d/%m/%Y')
     }
   end
+
+  def self.list_plate(list_plate)
+    list_plate.map do |plate|
+      {
+        id: plate[:id],
+        time: plate[:time],
+        paid: plate[:paid],
+        left: plate[:left]
+      }
+    end
+  end
 end

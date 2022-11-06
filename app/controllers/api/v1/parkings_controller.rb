@@ -14,6 +14,16 @@ module Api
         end
       end
 
+      def report_plate
+        plate_params = params[:plate].upcase
+        plate = Parking.where(plate: plate_params).order(id: :desc)
+        if plate.present?
+          render json: ParkingPresenter.list_plate(plate)
+        else
+          render json: { message: 'No results found' }
+        end
+      end
+
       def out
         @parking.left = params[:finished]
         if @parking.save
