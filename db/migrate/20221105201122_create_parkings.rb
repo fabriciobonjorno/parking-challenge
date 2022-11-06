@@ -5,10 +5,14 @@ class CreateParkings < ActiveRecord::Migration[7.0]
     create_table :parkings do |t|
       t.string :plate
       t.string :time
-      t.boolean :paid
-      t.boolean :left
+      t.boolean :paid, default: false
+      t.boolean :left, default: false
 
       t.timestamps
     end
+    add_index :parkings, :plate
+    add_index :parkings, :time
+    add_index :parkings, :paid
+    add_index :parkings, :left
   end
 end
