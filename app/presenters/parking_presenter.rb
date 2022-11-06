@@ -13,7 +13,7 @@ class ParkingPresenter
     {
       id: entrace[:id],
       plate: entrace[:plate],
-      entrance_time: entrace[:created_at].strftime("%d/%m/%Y") 
+      entrance_time: entrace[:created_at].strftime('%d/%m/%Y')
     }
   end
 end

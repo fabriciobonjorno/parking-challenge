@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,21 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_201122) do
+ActiveRecord::Schema[7.0].define(version: 20_221_105_201_122) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "parkings", force: :cascade do |t|
-    t.string "plate"
-    t.string "time"
-    t.boolean "paid", default: false
-    t.boolean "left", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["left"], name: "index_parkings_on_left"
-    t.index ["paid"], name: "index_parkings_on_paid"
-    t.index ["plate"], name: "index_parkings_on_plate"
-    t.index ["time"], name: "index_parkings_on_time"
+  create_table 'parkings', force: :cascade do |t|
+    t.string 'plate'
+    t.string 'time'
+    t.boolean 'paid', default: false
+    t.boolean 'left', default: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['left'], name: 'index_parkings_on_left'
+    t.index ['paid'], name: 'index_parkings_on_paid'
+    t.index ['plate'], name: 'index_parkings_on_plate'
+    t.index ['time'], name: 'index_parkings_on_time'
   end
-
 end
